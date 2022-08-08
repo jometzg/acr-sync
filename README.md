@@ -26,10 +26,10 @@ The customer's logic app is an HTTP-triggered one that checks the inbound reques
 
 In the above:
 1. The message is parsed using the schema of the webhook https://docs.microsoft.com/en-us/azure/container-registry/container-registry-webhook-reference#push-event
-2. A REST request is formed to the Azure ACR REST API https://docs.microsoft.com/en-us/rest/api/containerregistry/registries/import-image?tabs=HTTP#importimagebytag 
-3. The repository and tag are extracted from the request.
-4. The body needs credentials to the vendor's ACR (this are inserted inline)
-5. The REST request itself (to import to the customer's ACR), requires authentication. This is done via a managed identity of the logic app - which has access rights to the customer's ACR.
+2. The repository and tag are extracted from the request.
+3. A REST request is formed to the Azure ACR REST API https://docs.microsoft.com/en-us/rest/api/containerregistry/registries/import-image?tabs=HTTP#importimagebytag 
+5. The body needs credentials to the vendor's ACR (this are inserted inline)
+6. The REST request itself (to import to the customer's ACR), requires authentication. This is done via a managed identity of the logic app - which has access rights to the customer's ACR.
 
 The code of the logic app is:
 
@@ -170,4 +170,4 @@ The overall security model could be improved for both the customer and vendor by
 
 # Summary
 
-This is a simple parttern to allow a vendor to share a subset of their images with a specific customer - keeping these two isolated. In later versions of ACR, there will be a feature called "Connected Registry" https://docs.microsoft.com/en-us/azure/container-registry/intro-connected-registry , which will allow this to be done more declaratively. This will also require the Premium service tier of ACR.
+This is a simple parttern to allow a vendor to share a subset of their images with a specific customer - keeping these two isolated. In future releases of ACR, there will be a feature called "Connected Registry" https://docs.microsoft.com/en-us/azure/container-registry/intro-connected-registry , which will allow this to be done more declaratively. But this will also require the Premium service tier of ACR.
