@@ -15,6 +15,8 @@ The vendor's ACR creates a webhook that is triggered when a specific subset of t
 
 ![alt text](images/vendor-webhook.png "Vendor ACR webhook")
 
+![alt text](images/vendor-webhook-settings.png "Vendor ACR webhook settings")
+
 In the above, the webhook will fire when any repositories of the name "tripinsights/*" are updated. 
 
 The webhook is a URL - in this case the customer's HTTP-triggered logic app.
@@ -22,6 +24,9 @@ The webhook is a URL - in this case the customer's HTTP-triggered logic app.
 ### Customer's Logic App
 The customer's logic app is an HTTP-triggered one that checks the inbound request and then calls an Azure REST call to import the named repository (this is in the body of the webhook trigger) into the customer's ACR.
 
+![alt text](images/logic-app-overview.png "Customer logic app")
+
+Opening up the REST HTTP call:
 ![alt text](images/logic-app.png "Customer logic app")
 
 In the above:
