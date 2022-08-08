@@ -8,6 +8,11 @@ Synchronise selected repositories from one Azure container registry to another. 
 
 ![alt text](images/acr-sync.png "ACR selective sync")
 
+In terms of the flow, the numbered steps are:
+1. The vendor updates their public-facing ACR (either directly or indirectly)
+2. The vendor's ACR webhook then fires (sending the name of the repsository changed)
+3. Which calls the customer's logic app
+4. The logic app then imports the repository from the vendor's ACR to their local ACR.
 
 
 ## Implementation
