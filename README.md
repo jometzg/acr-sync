@@ -150,7 +150,7 @@ The code of the logic app is:
     "parameters": {}
 }
 ```
-**Note: The REST call to import the repo can take a number of seconds. If the response to the webhook is delayed, there can be retries which can cause an avalanche of more requests to the logic app. Putting the HTTP 200 response before the REST call avoids this.
+** Note: The REST call to import the repo can take a number of seconds. If the response to the webhook is delayed, there can be retries which can cause an avalanche of more requests to the logic app. Putting the HTTP 200 response before the REST call avoids this.
 
 
 ### Security Model
