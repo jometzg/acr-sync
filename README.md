@@ -162,9 +162,9 @@ The code of the logic app is:
 ### Security Model
 
 In this example:
-1. the customer does not have to give any access to their ACR to the vendor.
+1. The customer does not have to give any access to their ACR to the vendor.
 2. Only the customer's logic app has access to the customer's ACR - via the logic app's managed identity
-3. The logic app's URL is given to the vendor - with all of the tokens on the URL line.
+3. The logic app's URL is given to the vendor - with all of the tokens on the URL line - so a plain HTTP call to the logic app endpoint will not be sufficient.
 4. The logic app could also validate the contents of the webhook body to reject image names they should not have received
 5. The vendor needs to get the access keys of their ACR to the customer. This could be a concern, but the vendor could have an ACR instance per customer to make sure that only that customer's images will be visible to that customer.
 
@@ -174,6 +174,7 @@ The overall security model could be improved for both the customer and vendor by
 
 1. Restricting the logic app to only accept HTTP requests from known IP addresses.
 2. Restricting the visibility of the vendor's IP addresses from know networks (this can be [IP address restriction or private endpoints]( https://docs.microsoft.com/en-gb/azure/container-registry/container-registry-access-selected-networks ) but this will require the Premium version of ACR.
+3. Access to specific respositories can be restricted futher by [Scoped permissions](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions ). This is, however, a preview feature.
 
 
 # Summary
