@@ -51,7 +51,7 @@ The code of the logic app is:
                                 "password": "VENDORS-ACR-PASSWORD",
                                 "username": "VENDORS-ACR-USERNAME"
                             },
-                            "registryUri": "metron2.azurecr.io",
+                            "registryUri": "VENDORS-ACR-NAME.azurecr.io",
                             "sourceImage": "@{triggerBody()?['target']?['repository']}:@{triggerBody()?['target']?['tag']}"
                         },
                         "targetTags": [
@@ -63,7 +63,7 @@ The code of the logic app is:
                     "queries": {
                         "api-version": "2019-05-01"
                     },
-                    "uri": "https://management.azure.com/subscriptions/XXXXXXXXX/resourceGroups/YYYY/providers/Microsoft.ContainerRegistry/registries/ZZZZZZ/importImage"
+                    "uri": "https://management.azure.com/subscriptions/CUSTOMERS-SUBSCRIPTION/resourceGroups/CUSTOMERS-ACR-RESOURCE-GROUP/providers/Microsoft.ContainerRegistry/registries/CUSTOMERS-ACR-NAME/importImage"
                 },
                 "runAfter": {
                     "Response": [
