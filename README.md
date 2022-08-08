@@ -1,7 +1,7 @@
 # Azure Container Registry selective synchronisation
 
 ## Scenario
-A vendor wants to supply their software in the form of container images to a customer. The vendor only wants to supply specific images and so places these on a public-facing Azure Container Registry (ACR) instance. The customer has their own ACR and does not want to make this public, nor give any vendor keys to their ACR. But does want to get copies of new images from their vendors when they become available.
+A vendor wants to supply their software in the form of container images to a customer. The vendor only wants to supply specific images and so places these on a public-facing Azure Container Registry (ACR) instance. The customer has their own ACR and does not want to make this public, nor give any vendor keys to their ACR. But does want to automatically get copies of their vendor's new images when they become available.
 
 ## The Approach
 Synchronise selected repositories from one Azure container registry to another. This is an implementation where a vendor has some repositories they wish to make available to a customer - where the customer's container registry is not necesarily public-facing.
