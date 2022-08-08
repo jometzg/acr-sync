@@ -172,7 +172,7 @@ In this example:
 
 The overall security model could be improved for both the customer and vendor by:
 
-1. Restricting the logic app to only accept HTTP requests from known IP addresses.
+1. Restricting the logic app to only accept HTTP requests from [known IP addresses](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-securing-a-logic-app?tabs=azure-portal).
 2. Restricting the visibility of the vendor's IP addresses from know networks (this can be [IP address restriction or private endpoints]( https://docs.microsoft.com/en-gb/azure/container-registry/container-registry-access-selected-networks ) but this will require the Premium version of ACR.
 3. Access to specific respositories can be restricted futher by [Scoped permissions](https://docs.microsoft.com/en-us/azure/container-registry/container-registry-repository-scoped-permissions ). This is, however, a preview feature.
 
