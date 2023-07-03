@@ -3,6 +3,13 @@
 ## Scenario
 A vendor wants to supply their software in the form of container images to a customer. The vendor only wants to supply specific images and so places these on a public-facing Azure Container Registry (ACR) instance. The customer has their own ACR and does not want to make this public, nor give any vendor keys to their ACR. But does want to automatically get copies of their vendor's new images when they become available.
 
+## A Simple Approach
+There is now a feature of Azure Container Registry (ACR) called [Base Image Updates](https://learn.microsoft.com/en-us/azure/container-registry/container-registry-tasks-base-images#track-base-image-updates) which is an ACR Task that polls to look for changes in a base image version. It then triggers a build of a new image directly in ACR.
+
+This is the quickest way to build this use case, but it has one major caveat in that the resulant image will be one that "wraps" the source image and if you need to be sure that the image matches one that is signed, this may not be the best approach.
+
+The rest of this repository descibes an alternative technique.
+
 ## The Approach
 Synchronise selected repositories from one Azure container registry to another. This is an implementation where a vendor has some repositories they wish to make available to a customer - where the customer's container registry is not necesarily public-facing.
 
